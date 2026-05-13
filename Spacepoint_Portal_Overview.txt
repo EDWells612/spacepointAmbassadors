@@ -1,6 +1,6 @@
 # Spacepoint Ambassador Portal - Stakeholder Overview
 
-The Spacepoint Ambassador Portal is a comprehensive ecosystem designed to scale global education outreach through a tiered network of Ambassadors, Teachers, and Instructors. The platform gamifies the recruitment and session management process using a robust points and commission-based reward system.
+The Spacepoint Ambassador Portal is an ecosystem designed to scale global education outreach through a tiered network of Ambassadors, Teachers, and Instructors. The platform gamifies the recruitment and session management process using points and commission-based reward system.
 
 ## ── User Roles & Capabilities ──
 
@@ -25,7 +25,7 @@ The frontline educators delivering the Spacepoint mission.
 - Session Management: Schedule and log student-facing educational sessions.
 - Impact Tracking: Record the number of students reached and materials delivered.
 - Earning: Accumulate points for every verified session conducted.
-- Rewards: Access the swag catalog to redeem points for professional equipment and rewards.
+- Rewards: Access the swag catalog to redeem points for rewards.
 
 ## ── Key Platform Features ──
 - Real-Time Notifications: Intelligent alerts with deep-linking for immediate operational actions.
