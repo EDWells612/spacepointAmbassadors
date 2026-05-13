@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { Users, GraduationCap, Copy, Check, Share2, Plus, X, Calendar, CheckCircle, BookOpen, Send } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function Network() {
   const { user } = useAuth();

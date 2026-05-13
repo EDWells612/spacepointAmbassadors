@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Bell, CheckCircle, Target, BookOpen, User, Trophy, X } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function NotificationBell() {
   const [notifications, setNotifications] = useState([]);

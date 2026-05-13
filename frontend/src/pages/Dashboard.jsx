@@ -5,7 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { Users, UserCheck, Target, CheckSquare, Award, Gift, TrendingUp, Download, X, ShoppingBag, DollarSign, ArrowUpRight, ArrowDownRight, Package, Clock, GraduationCap } from 'lucide-react';
 import { generateImpactReport } from '../utils/pdfGenerator';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function Dashboard() {
   const { user, role } = useAuth();

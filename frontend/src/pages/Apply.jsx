@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function Apply() {
   const [formData, setFormData] = useState({

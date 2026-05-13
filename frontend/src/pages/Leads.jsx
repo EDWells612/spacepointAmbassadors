@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { Plus, X } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 const STATUS_STYLES = {
   submitted: 'bg-blue-500/20 text-blue-400 border-blue-500/30',

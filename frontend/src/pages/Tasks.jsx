@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { CheckCircle, Clock, Plus, X, Send, UserPlus } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function Tasks() {
   const { user, role } = useAuth();

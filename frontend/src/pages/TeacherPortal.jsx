@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { BookOpen, Plus, X, Calendar, CheckCircle, Clock, Send } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function TeacherPortal() {
     const { user } = useAuth();

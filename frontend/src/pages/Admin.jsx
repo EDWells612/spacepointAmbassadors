@@ -8,7 +8,7 @@ import {
   BarChart2, DollarSign, ArrowUpRight, ArrowDownRight, Trophy
 } from 'lucide-react';
 
-const API_URL = 'http://localhost:8000/api';
+import { API_URL } from '../config';
 
 export default function AdminPortal() {
   const { role } = useAuth();
