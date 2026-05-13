@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { LayoutDashboard, Target, Users, Settings, CheckSquare, LogOut, BookOpen, Menu, X } from 'lucide-react';
+import { LayoutDashboard, Target, Users, Settings, CheckSquare, LogOut, BookOpen, Menu, X, Package, Gift } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import NotificationBell from './NotificationBell';
 
