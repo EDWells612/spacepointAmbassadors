@@ -1,0 +1,34 @@
+# Spacepoint Ambassador Portal - Stakeholder Overview
+
+The Spacepoint Ambassador Portal is a comprehensive ecosystem designed to scale global education outreach through a tiered network of Ambassadors, Teachers, and Instructors. The platform gamifies the recruitment and session management process using a robust points and commission-based reward system.
+
+## ── User Roles & Capabilities ──
+
+### 1. Platform Administrators (Admin)
+The control center of the ecosystem.
+- User Management: Review and approve new Ambassador and Teacher applications.
+- Operational Oversight: Create and assign targeted Tasks to Ambassadors.
+- Financial Control: Review and fulfill Redemption Orders for points (swag) and commissions (cash).
+- Lead Management: Monitor the B2B/distributor pipeline submitted by the network.
+- System Configuration: Adjust global points-to-currency ratios and platform settings.
+
+### 2. Global Ambassadors
+The primary growth drivers of the platform.
+- Recruitment: Invite Teachers and Instructors using unique referral codes.
+- Task Completion: Undertake specific marketing or operational tasks to earn reward points.
+- Lead Generation: Submit potential business leads to earn monetary commissions.
+- Network Monitoring: Track the activity and success of recruited teachers in real-time.
+- Rewards: Redeem accumulated points for branded swag or withdraw commission earnings.
+
+### 3. Teachers & Instructors
+The frontline educators delivering the Spacepoint mission.
+- Session Management: Schedule and log student-facing educational sessions.
+- Impact Tracking: Record the number of students reached and materials delivered.
+- Earning: Accumulate points for every verified session conducted.
+- Rewards: Access the swag catalog to redeem points for professional equipment and rewards.
+
+## ── Key Platform Features ──
+- Real-Time Notifications: Intelligent alerts with deep-linking for immediate operational actions.
+- Performance Analytics: Dynamic dashboards showing student reach, conversion rates, and recruitment success.
+- Automated Ledger: Secure tracking of every point earned and every dollar of commission generated.
+- Impact Reporting: Automated generation of PDF reports summarizing personal and network contributions.
