@@ -25,7 +25,11 @@ export default function Navbar() {
   ];
 
   const adminLinks = [
-    { path: '/admin', label: 'Admin Portal', icon: <Settings size={18} /> },
+    { path: '/admin', label: 'Ambassadors', icon: <Users size={18} />, state: { tab: 'ambassadors' } },
+    { path: '/admin', label: 'Leads', icon: <Target size={18} />, state: { tab: 'leads' } },
+    { path: '/admin', label: 'Tasks', icon: <CheckSquare size={18} />, state: { tab: 'tasks' } },
+    { path: '/admin', label: 'Orders', icon: <Package size={18} />, state: { tab: 'orders' } },
+    { path: '/admin', label: 'Swag', icon: <Gift size={18} />, state: { tab: 'swag' } },
   ];
 
   const navLinks =
@@ -65,11 +69,12 @@ export default function Navbar() {
 
           {user && !isPublicPage && (
             <div className="hidden md:flex space-x-2">
-              {navLinks.map((link) => (
+              {navLinks.map((link, idx) => (
                 <Link
-                  key={link.path}
+                  key={`${link.path}-${idx}`}
                   to={link.path}
-                  className={`flex items-center space-x-2 px-4 py-2 rounded-full text-label-md transition-colors ${isActive(link.path)
+                  state={link.state}
+                  className={`flex items-center space-x-2 px-4 py-2 rounded-full text-label-md transition-colors ${isActive(link.path) && (!link.state || location.state?.tab === link.state.tab)
                       ? 'bg-primary-90 text-on-surface'
                       : 'text-secondary hover:bg-tertiary hover:text-on-surface'
                     }`}
@@ -125,17 +130,18 @@ export default function Navbar() {
             <div className="text-label-sm text-secondary capitalize">{user?.role}</div>
           </div>
           
-          {navLinks.map((link) => (
+          {navLinks.map((link, idx) => (
             <Link
-              key={link.path}
+              key={`${link.path}-${idx}`}
               to={link.path}
+              state={link.state}
               onClick={() => setIsMenuOpen(false)}
-              className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-label-md transition-colors ${isActive(link.path)
+              className={`flex items-center space-x-3 px-4 py-3 rounded-xl text-label-md transition-colors ${isActive(link.path) && (!link.state || location.state?.tab === link.state.tab)
                   ? 'bg-primary-90 text-on-surface shadow-sm'
                   : 'text-secondary hover:bg-tertiary hover:text-on-surface'
                 }`}
             >
-              <span className={isActive(link.path) ? 'text-on-surface' : 'text-primary-60'}>
+              <span className={isActive(link.path) && (!link.state || location.state?.tab === link.state.tab) ? 'text-on-surface' : 'text-primary-60'}>
                 {link.icon}
               </span>
               <span>{link.label}</span>

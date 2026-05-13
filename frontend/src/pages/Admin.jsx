@@ -31,8 +31,9 @@ export default function AdminPortal() {
   }
 
   return (
-    <div className="flex min-h-[calc(100vh-80px)]">
-      <div className="w-64 bg-tertiary border-r border-primary-90 p-md flex flex-col space-y-2 flex-shrink-0">
+    <div className="flex flex-col md:flex-row min-h-[calc(100vh-80px)]">
+      {/* Sidebar - Desktop */}
+      <div className="hidden md:flex w-64 bg-tertiary border-r border-primary-90 p-md flex-col space-y-2 flex-shrink-0">
         <h2 className="text-label-lg uppercase tracking-wider text-secondary mb-4 ml-2">Admin Modules</h2>
         <SidebarBtn icon={<Users />} label="Ambassadors" active={activeTab === 'ambassadors'} onClick={() => setActiveTab('ambassadors')} />
         <SidebarBtn icon={<Settings />} label="System Settings" active={activeTab === 'settings'} onClick={() => setActiveTab('settings')} />
@@ -44,7 +45,21 @@ export default function AdminPortal() {
         <SidebarBtn icon={<DollarSign />} label="Commission Log" active={activeTab === 'commission'} onClick={() => setActiveTab('commission')} />
         <SidebarBtn icon={<Trophy />} label="Points Log" active={activeTab === 'points'} onClick={() => setActiveTab('points')} />
       </div>
-      <div className="flex-grow p-lg overflow-y-auto">
+
+      {/* Mobile Module Selector - Horizontal Scroll */}
+      <div className="md:hidden flex overflow-x-auto bg-tertiary border-b border-primary-90 p-sm space-x-2 scrollbar-hide sticky top-[64px] z-30">
+        <MobileTabBtn icon={<Users size={16} />} label="Ambassadors" active={activeTab === 'ambassadors'} onClick={() => setActiveTab('ambassadors')} />
+        <MobileTabBtn icon={<Settings size={16} />} label="Settings" active={activeTab === 'settings'} onClick={() => setActiveTab('settings')} />
+        <MobileTabBtn icon={<Target size={16} />} label="Leads" active={activeTab === 'leads'} onClick={() => setActiveTab('leads')} />
+        <MobileTabBtn icon={<CheckSquare size={16} />} label="Tasks" active={activeTab === 'tasks'} onClick={() => setActiveTab('tasks')} />
+        <MobileTabBtn icon={<Package size={16} />} label="Orders" active={activeTab === 'orders'} onClick={() => setActiveTab('orders')} />
+        <MobileTabBtn icon={<Gift size={16} />} label="Swag" active={activeTab === 'swag'} onClick={() => setActiveTab('swag')} />
+        <MobileTabBtn icon={<Trophy size={16} />} label="Leaderboard" active={activeTab === 'leaderboard'} onClick={() => setActiveTab('leaderboard')} />
+        <MobileTabBtn icon={<DollarSign size={16} />} label="Commission" active={activeTab === 'commission'} onClick={() => setActiveTab('commission')} />
+        <MobileTabBtn icon={<Trophy size={16} />} label="Points" active={activeTab === 'points'} onClick={() => setActiveTab('points')} />
+      </div>
+
+      <div className="flex-grow p-sm md:p-lg overflow-y-auto">
         {activeTab === 'ambassadors' && <AdminAmbassadors />}
         {activeTab === 'settings' && <AdminSettings />}
         {activeTab === 'leads' && <AdminLeads />}
@@ -56,6 +71,18 @@ export default function AdminPortal() {
         {activeTab === 'points' && <AdminPointsLog />}
       </div>
     </div>
+  );
+}
+
+function MobileTabBtn({ icon, label, active, onClick }) {
+  return (
+    <button
+      onClick={onClick}
+      className={`flex items-center space-x-2 whitespace-nowrap px-4 py-2 rounded-full text-label-sm transition-colors ${active ? 'bg-primary text-on-surface' : 'bg-surface border border-primary-90 text-secondary'}`}
+    >
+      {icon}
+      <span>{label}</span>
+    </button>
   );
 }
 
