@@ -22,8 +22,8 @@ app = FastAPI(title=settings.PROJECT_NAME, openapi_url="/openapi.json")
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # tighten to the frontend domain in production
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
