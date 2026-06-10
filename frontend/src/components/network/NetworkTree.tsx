@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { ReactFlow, Background, Controls, type Node, type Edge, MarkerType } from "@xyflow/react"
+import { ReactFlow, Background, Controls, Position, type Node, type Edge, MarkerType } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
 import type { Teacher, Instructor, TeacherSession } from "@/types"
 
@@ -42,8 +42,8 @@ export function NetworkTree({
       position: { x: 0, y: 0 },
       data: { label: rootName },
       style: nodeStyle("#0a0a0a"),
-      sourcePosition: "right" as const,
-      targetPosition: "left" as const,
+      sourcePosition: Position.Right,
+      targetPosition: Position.Left,
     })
 
     const activeTeachers = teachers.filter((t) => t.status === "active")
@@ -58,8 +58,8 @@ export function NetworkTree({
         position: { x: 260, y: row * colGap },
         data: { label: `${t.full_name}  ·  Teacher` },
         style: nodeStyle(HELIO),
-        sourcePosition: "right" as const,
-        targetPosition: "left" as const,
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
       })
       edges.push({
         id: `e-root-${tId}`,
@@ -77,7 +77,7 @@ export function NetworkTree({
           position: { x: 520, y: row * colGap + (j - 1) * 46 },
           data: { label: `${s.title}  ·  ${s.status}${s.status === "done" ? ` (${s.attended_students})` : ""}` },
           style: nodeStyle(s.status === "done" ? "#4ade80" : "#e5e7eb", s.status === "done" ? "#06321a" : "#374151"),
-          targetPosition: "left" as const,
+          targetPosition: Position.Left,
         })
         edges.push({
           id: `e-${tId}-${sId}`,
@@ -98,7 +98,7 @@ export function NetworkTree({
           position: { x: 260, y: row * colGap },
           data: { label: `${i.name}  ·  Instructor` },
           style: nodeStyle("#643f83"),
-          targetPosition: "left" as const,
+          targetPosition: Position.Left,
         })
         edges.push({
           id: `e-root-${iId}`,

@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { Link } from "@tanstack/react-router"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
-import { ChevronRight, Check, X, ExternalLink } from "lucide-react"
+import { ChevronRight, Check, X } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
 import {
-  getMyTeachersApi, getMyInstructorsApi, updateTeacherStatusApi, getAllSessionsApi,
+  getMyTeachersApi, getMyInstructorsApi, getAllSessionsApi,
 } from "@/api/network"
 import { listMyTeacherApplicationsApi, approveTeacherApplicationApi, rejectTeacherApplicationApi, getTeacherApplicationQuestionsApi } from "@/api/application"
 import type { TeacherSession, TeacherApplication } from "@/types"
@@ -26,14 +26,6 @@ export default function Network() {
   const applications = useQuery({ queryKey: ["teacher-applications"], queryFn: listMyTeacherApplicationsApi })
   const appQuestions = useQuery({ queryKey: ["application-questions-public"], queryFn: getTeacherApplicationQuestionsApi })
   const questionMap = Object.fromEntries((appQuestions.data ?? []).map(q => [q.id, q.question_text]))
-
-  const teacherStatus = useMutation({
-    mutationFn: ({ id, status }: { id: string; status: "active" | "rejected" }) => updateTeacherStatusApi(id, status),
-    onSuccess: () => {
-      qc.invalidateQueries({ queryKey: ["teachers"] })
-      qc.invalidateQueries({ queryKey: ["dashboard"] })
-    },
-  })
 
   const approveApp = useMutation({
     mutationFn: (id: string) => approveTeacherApplicationApi(id),

@@ -138,7 +138,7 @@ export function LeadDetailModal({ lead, onClose }: { lead: Lead; onClose: () => 
               onChange={(e) => setText(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); if (text.trim()) add.mutate() } }}
             />
-            <Button type="submit" size="icon-lg" disabled={add.isPending || !text.trim()}><Send size={16} /></Button>
+            <Button type="submit" size="icon" disabled={add.isPending || !text.trim()}><Send size={16} /></Button>
           </form>
         </div>
         )}

@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-import { ReactFlow, Background, Controls, type Node, type Edge, MarkerType } from "@xyflow/react"
+import { ReactFlow, Background, Controls, Position, type Node, type Edge, MarkerType } from "@xyflow/react"
 import "@xyflow/react/dist/style.css"
 
 const HELIO = "#a880ff"
@@ -38,7 +38,7 @@ export function FullNetworkTree({ ambassadors }: { ambassadors: FullNetworkAmbas
       position: { x: 0, y: (Math.max(totalRows, 1) * rowH) / 2 - 20 },
       data: { label: "SpacePoint" },
       style: nodeStyle("#0a0a0a", "#fff", 150),
-      sourcePosition: "right" as const,
+      sourcePosition: Position.Right,
     })
 
     ambassadors.forEach((a) => {
@@ -50,8 +50,8 @@ export function FullNetworkTree({ ambassadors }: { ambassadors: FullNetworkAmbas
         position: { x: 230, y: ambRow * rowH },
         data: { label: `${a.full_name}  ·  Ambassador` },
         style: nodeStyle("#643f83"),
-        sourcePosition: "right" as const,
-        targetPosition: "left" as const,
+        sourcePosition: Position.Right,
+        targetPosition: Position.Left,
       })
       edges.push({
         id: `e-root-${ambId}`, source: "root", target: ambId, animated: true,
@@ -67,7 +67,7 @@ export function FullNetworkTree({ ambassadors }: { ambassadors: FullNetworkAmbas
           position: { x: 470, y: childRow * rowH },
           data: { label: `${t.full_name}  ·  Teacher${t.sessions_done ? `  ·  ${t.sessions_done} done` : ""}` },
           style: { ...nodeStyle(faded ? "#e5e7eb" : HELIO, faded ? "#6b7280" : "#fff"), opacity: faded ? 0.7 : 1 },
-          targetPosition: "left" as const,
+          targetPosition: Position.Left,
         })
         edges.push({ id: `e-${ambId}-${tId}`, source: ambId, target: tId, style: { stroke: faded ? "#e5e7eb" : HELIO } })
         childRow += 1
@@ -80,7 +80,7 @@ export function FullNetworkTree({ ambassadors }: { ambassadors: FullNetworkAmbas
           position: { x: 470, y: childRow * rowH },
           data: { label: `${i.name}  ·  Instructor` },
           style: { ...nodeStyle(faded ? "#e5e7eb" : "#8b6fb0", faded ? "#6b7280" : "#fff"), opacity: faded ? 0.7 : 1 },
-          targetPosition: "left" as const,
+          targetPosition: Position.Left,
         })
         edges.push({ id: `e-${ambId}-${iId}`, source: ambId, target: iId, style: { stroke: "#c4b5d8" } })
         childRow += 1

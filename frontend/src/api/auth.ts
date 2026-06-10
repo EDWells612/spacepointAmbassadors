@@ -18,6 +18,7 @@ export const applyTeacherApi = (data: {
   email: string
   password: string
   invite_code: string
+  answers?: Record<string, string | string[]>
 }) => api.post<User>("/auth/teacher-apply", data).then((r) => r.data)
 
 export const applyInstructorApi = (data: {
